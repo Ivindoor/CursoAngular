@@ -1,0 +1,120 @@
+<div *ngIf="selectedHero">
+
+    <h2>{{selectedHero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedHero.id}}</div>
+    <img class="gif" src="assets/characters/{{selectedHero.url}}">   
+      
+</div>
+
+<h2>My Heroes</h2>
+<ul class="heroes">
+        <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+<div class="slider">
+        <input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav"/>
+        <input type="radio" name="slider" title="slide2" class="slider__nav"/>
+        <input type="radio" name="slider" title="slide3" class="slider__nav"/>
+        <input type="radio" name="slider" title="slide4" class="slider__nav"/>
+        <div class="slider__inner">
+          <div class="slider__contents">
+          <div class="containerCards">
+            <div class="wrapper">
+                <div class="card" style="background-color: lightblue;">
+                    <h1 class="titleCard">
+                    <img class="cartoon" src="assets/characters/LogoSpongeBob.png" alt="">
+                    </h1>
+                </div>
+            </div>
+        </div>
+            <p class="slider__txt">Lives under the ocean in a stone house with two annoying neighbors</p>
+          </div>
+          <div class="slider__contents">
+          <div class="containerCards">
+            <div class="wrapper">
+                <div class="card"  style="background-color: rgb(31, 31, 99);">
+                    <h1 class="titleCard">
+                    <img class="cartoon" src="assets/characters/LogoAdventureTime.png" alt="">
+                    </h1>
+                </div>
+            </div>
+        </div>
+            <p class="slider__txt">He has a brave friend that is in the friendzone</p>
+          </div>
+          <div class="slider__contents">
+          <div class="containerCards">
+            <div class="wrapper">
+                <div class="card">
+                    <h1 class="titleCard">
+                    <img class="cartoon" src="assets/characters/LogoTheLegendOfZelda.png" alt="">
+                    </h1>
+                </div>
+            </div>
+        </div>
+            <p class="slider__txt">He's name is not Zelda</p>
+          </div>
+          <div class="slider__contents">
+          <div class="containerCards">
+            <div class="wrapper">
+                <div class="card">
+                    <h1 class="titleCard">
+                    <img class="cartoon" src="assets/characters/LogoLiloAndStich.png" alt="">
+                    </h1>
+                </div>
+            </div>
+        </div>
+            <p class="slider__txt">It's an Alien that has treated like a dog</p>
+          </div>
+          <div class="slider__contents">
+          <div class="containerCards">
+            <div class="wrapper">
+                <div class="card">
+                    <h1 class="titleCard">
+                    <img class="cartoon" src="assets/characters/LogoAdventureTime.png" alt="">
+                    </h1>
+                </div>
+            </div>
+        </div>
+            <p class="slider__txt">She's a pink princess with male voice and arrogant</p>
+          </div>
+          <div class="slider__contents">
+          <div class="containerCards">
+            <div class="wrapper">
+                <div class="card">
+                    <h1 class="titleCard">
+                    <img class="cartoon" src="assets/characters/LogoMortalKombat.png" alt="">
+                    </h1>
+                </div>
+            </div>
+        </div>
+            <p class="slider__txt">He's the pullet and has a cold enemy</p>
+          </div>
+          <div class="slider__contents">
+          <div class="containerCards">
+            <div class="wrapper">
+                <div class="card">
+                    <h1 class="titleCard">
+                   <img class="cartoon" src="assets/characters/LogoPokemon.png" alt="">
+                    </h1>
+                </div>
+            </div>
+        </div>
+            <p class="slider__txt">It's a Pokemon blue, fat and lazy</p>
+          </div>
+          <div class="slider__contents">
+          <div class="containerCards">
+            <div class="wrapper">
+                <div class="card">
+                    <h1 class="titleCard">
+                    <img class="cartoon" src="assets/characters/LogoTheKingOfFighters.png" alt="">
+                    </h1>
+                </div>
+            </div>
+        </div>
+            <p class="slider__txt">He's the copy of Ken in The King of Fighters</p>
+          </div>
+        </div>
+      </div>
+
