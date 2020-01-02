@@ -76,14 +76,31 @@ export class ButtonHelpComponent implements OnInit {
             /* Center Element with the Modal*/
             view.style.marginTop = '25px';
             view.style.marginLeft = '25px';
+
+
+            /* Remove Class of Bubble */
+            document.getElementById("instruction").classList.remove("none");
+            /* Add Class of Bubble */
+            document.getElementById("instruction").classList.add("bubble");
+
+
+            setTimeout(function(){ 
+              /* Remove Class of Loading Instruccions */
+              document.getElementById("bubbleLoading").classList.remove("loading");
+              /* Add Class of Loading Instruccions */
+              document.getElementById("bubbleLoading").classList.add("none");
+          
+            }, 2000);/* End Loading */
             
+
           }, 1500);/* End Element */
           
           }, 3500); /* End of presentation transition */
           
+  
+  
+           
         }
-
-        
     });
   }
 
