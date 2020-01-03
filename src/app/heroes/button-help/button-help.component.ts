@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2'
-import * as $ from "jquery"
-import { delay } from 'q';
 
 @Component({
   selector: 'app-button-help',
@@ -60,46 +58,52 @@ export class ButtonHelpComponent implements OnInit {
 
           setTimeout(function(){ 
             /* Call element */
-            let view = document.getElementById("buttonHelp"); /* Id  */
+            let view = document.getElementById("test"); /* Id  */
             /* Get Position and Measurements */
-            let position = view.getBoundingClientRect();
+            let properties = view.getBoundingClientRect();
             let frontModal = document.getElementById("frontModal");
-            /* console.log(position); */
-            frontModal.style.top = position.top+265 +'px';
-            frontModal.style.right = position.right +'px';
-            frontModal.style.left = position.left-30 +'px';
-            frontModal.style.bottom = position.bottom +'px';
-            frontModal.style.width = 50+position.width+'px';
-            frontModal.style.height = 50+position.height+'px';
+            /* console.log(properties); */
+            frontModal.style.top = properties.top + 265 +'px';
+            frontModal.style.right = properties.right +'px';
+            frontModal.style.left = properties.left - 30 +'px';
+            frontModal.style.bottom = properties.bottom +'px';
+            frontModal.style.width = 50 + properties.width+'px';
+            frontModal.style.height = 50 + properties.height+'px';
             /* Append to Modal */
             frontModal.append(view);
             /* Center Element with the Modal*/
             view.style.marginTop = '25px';
             view.style.marginLeft = '25px';
 
-
+            /* Create Variable of Bubble */
+            let bubble = document.getElementById("instruction");
             /* Remove Class of Bubble */
-            document.getElementById("instruction").classList.remove("none");
+            bubble.classList.remove("none");
             /* Add Class of Bubble */
-            document.getElementById("instruction").classList.add("bubble");
+            bubble.classList.add("bubble");
 
+            /* Text of Instruction */
+            document.getElementById("bubbleText").innerHTML= 'This is the first instruction of this Tutorial <br> With Space'; /* Write instruccion */
 
-            setTimeout(function(){ 
-              /* Remove Class of Loading Instruccions */
-              document.getElementById("bubbleLoading").classList.remove("loading");
-              /* Add Class of Loading Instruccions */
-              document.getElementById("bubbleLoading").classList.add("none");
-          
-            }, 2000);/* End Loading */
+            /* Top Bubble */
+            let bubbleProperties = bubble.getBoundingClientRect();
+            let height = (properties.height / 2) + bubbleProperties.height ; 
+            /* Center Bubble */
+            let width = properties.width / 2;
+
+            /* Call Position and Measurements of element*/
+            bubble.style.top = properties.top + 265 - height +'px';
+            bubble.style.left = properties.left + width +'px';
+            
+            /* Next and Prev */
             
 
           }, 1500);/* End Element */
           
+
           }, 3500); /* End of presentation transition */
           
-  
-  
-           
+
         }
     });
   }
