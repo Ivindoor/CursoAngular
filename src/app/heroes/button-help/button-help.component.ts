@@ -58,7 +58,7 @@ export class ButtonHelpComponent implements OnInit {
 
           setTimeout(function(){ 
             /* Call element */
-            let view = document.getElementById("test"); /* Id  */
+            let view = document.getElementById("buttonHelp"); /* Id  */
             /* Get Position and Measurements */
             let properties = view.getBoundingClientRect();
             let frontModal = document.getElementById("frontModal");
@@ -85,16 +85,37 @@ export class ButtonHelpComponent implements OnInit {
             /* Text of Instruction */
             document.getElementById("bubbleText").innerHTML= 'This is the first instruction of this Tutorial <br> With Space'; /* Write instruccion */
 
-            /* Top Bubble */
+            /* Top | Left Bubble */
             let bubbleProperties = bubble.getBoundingClientRect();
-            let height = (properties.height / 2) + bubbleProperties.height ; 
+            let height = (properties.height / 2) + bubbleProperties.height;
             /* Center Bubble */
             let width = properties.width / 2;
+            let bubbleWidth = bubbleProperties.width;
 
             /* Call Position and Measurements of element*/
             bubble.style.top = properties.top + 265 - height +'px';
-            bubble.style.left = properties.left + width +'px';
+            bubble.style.left = properties.left + width - bubbleWidth +'px';
+
+            /* Adjust Bob's */
+            let bobs = document.getElementById("bobs");
+            bobs.style.transform = "scaleX(-1)"; /* Rotate 180deg */
+            bobs.style.left = bubbleProperties.width + "px";
             
+            /* Top | Right Bubble */
+            /* let bubbleProperties = bubble.getBoundingClientRect();
+            let height = (properties.height / 2) + bubbleProperties.height;  */
+            /* Center Bubble */
+            /* let width = properties.width / 2; */
+
+            /* Call Position and Measurements of element*/
+            /* bubble.style.top = properties.top + 265 - height +'px';
+            bubble.style.left = properties.right - width +'px'; */
+             
+            /* Adjust Bob's */
+            /* let bobs = document.getElementById("bobs");
+            bobs.style.right = bubbleProperties.width + "px"; */
+
+
             /* Next and Prev */
             
 
