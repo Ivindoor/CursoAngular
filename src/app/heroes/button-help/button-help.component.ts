@@ -57,9 +57,9 @@ export class ButtonHelpComponent implements OnInit {
           
 
           setTimeout(function(){ 
-            /* Call element */
+            /* Call Element */
             let view = document.getElementById("buttonHelp"); /* Id  */
-            /* Get Position and Measurements */
+            /* Get Position and Measurements of Element */
             let properties = view.getBoundingClientRect();
             let frontModal = document.getElementById("frontModal");
             /* console.log(properties); */
@@ -83,37 +83,68 @@ export class ButtonHelpComponent implements OnInit {
             bubble.classList.add("bubble");
 
             /* Text of Instruction */
-            document.getElementById("bubbleText").innerHTML= 'This is the first instruction of this Tutorial <br> With Space'; /* Write instruccion */
+            let bubbleText = document.getElementById("bubbleText");
+            bubbleText.innerHTML= 'This is the first instruction of this Tutorial <br> With Space'; /* Write instruccion */
+
+            /* Get Position and Measurements of Bubble*/
+            let bubbleProperties = bubble.getBoundingClientRect();
+
+            console.log( properties + " y La resolución de tu pantalla es: " + screen.width + " x " + screen.height);
+
+            /* Validate Position of Element */
+            /* switch(){
+            } */
+
+          
+
+
+             /* Top | Right Bubble */
+             let height = (properties.height / 2) + bubbleProperties.height ; 
+             /* Center Bubble */
+             let width = properties.width / 2;
+             /* Call Position and Measurements of element*/
+             bubble.style.top = properties.top + 265 - height +'px';
+             bubble.style.left = properties.right - width +'px';
+
+
 
             /* Top | Left Bubble */
-            let bubbleProperties = bubble.getBoundingClientRect();
-            let height = (properties.height / 2) + bubbleProperties.height;
+            /* let height = (properties.height / 2) + bubbleProperties.height; */
             /* Center Bubble */
-            let width = properties.width / 2;
-            let bubbleWidth = bubbleProperties.width;
-
-            /* Call Position and Measurements of element*/
-            bubble.style.top = properties.top + 265 - height +'px';
-            bubble.style.left = properties.left + width - bubbleWidth +'px';
-
-            /* Adjust Bob's */
-            let bobs = document.getElementById("bobs");
-            bobs.style.transform = "scaleX(-1)"; /* Rotate 180deg */
-            bobs.style.left = bubbleProperties.width + "px";
-            
-            /* Top | Right Bubble */
-            /* let bubbleProperties = bubble.getBoundingClientRect();
-            let height = (properties.height / 2) + bubbleProperties.height;  */
-            /* Center Bubble */
-            /* let width = properties.width / 2; */
-
+            /* let width = properties.width / 2;
+            let bubbleWidth = bubbleProperties.width; */
             /* Call Position and Measurements of element*/
             /* bubble.style.top = properties.top + 265 - height +'px';
+            bubble.style.left = properties.left + width - bubbleWidth +'px'; */
+            /* Rotate Bubble */
+            /* bubble.style.transform = "scaleX(-1)"; */
+            /* Adjust Text */
+            /* bubbleText.style.transform = "scaleX(-1)"; */
+
+            /* Bottom | Right Bubble */
+            /* let height = (properties.height / 2) + bubbleProperties.height ;  */
+            /* Center Bubble */
+            /* let width = properties.width / 2; */
+            /* Call Position and Measurements of element*/
+            /* bubble.style.top = properties.top + 265 + height +'px';
             bubble.style.left = properties.right - width +'px'; */
-             
-            /* Adjust Bob's */
-            /* let bobs = document.getElementById("bobs");
-            bobs.style.right = bubbleProperties.width + "px"; */
+            /* Rotate Bubble */
+            /* bubble.style.transform = "scaleY(-1)"; */
+            /* Adjust Text */
+            /* bubbleText.style.transform = "scaleY(-1)"; */
+
+            /* Bottom | Left Bubble */
+            /* let height = (properties.height / 2) + bubbleProperties.height; */
+            /* Center Bubble */
+            /* let width = properties.width / 2;
+            let bubbleWidth = bubbleProperties.width; */
+            /* Call Position and Measurements of element*/
+            /* bubble.style.top = properties.top + 265 + height +'px';
+            bubble.style.left = properties.left + width - bubbleWidth +'px'; */
+            /* Rotate Bubble */
+            /* bubble.style.transform = "scaleX(-1) scaleY(-1)"; */
+            /* Adjust Text */
+            /* bubbleText.style.transform = "scaleX(-1) scaleY(-1)"; */
 
 
             /* Next and Prev */
