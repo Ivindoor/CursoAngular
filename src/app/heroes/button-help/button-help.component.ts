@@ -84,48 +84,30 @@ export class ButtonHelpComponent implements OnInit {
         /* Center Bubble */
         let width = properties.width / 2;
         /* Call Position and Measurements of element*/
-        bubble.style.top = properties.top + 265 - height +'px';
-        bubble.style.left = properties.right - width +'px';
+        
+/******************************************************************************************************/
+/* Right position and bubble top*/
+bubble.style.transform = 'scaleX(-1)';
+document.getElementById("bubbleText").style.transform = 'scaleX(-1)';
+bubble.style.top = properties.top + 265 - height +'px';
+bubble.style.left = properties.left - width*6.5 +'px';
 
-
-
-      /* Top | Left Bubble */
-      /* let height = (properties.height / 2) + bubbleProperties.height; */
-      /* Center Bubble */
-      /* let width = properties.width / 2;
-      let bubbleWidth = bubbleProperties.width; */
-      /* Call Position and Measurements of element*/
-      /* bubble.style.top = properties.top + 265 - height +'px';
-      bubble.style.left = properties.left + width - bubbleWidth +'px'; */
-      /* Rotate Bubble */
-      /* bubble.style.transform = "scaleX(-1)"; */
-      /* Adjust Text */
-      /* bubbleText.style.transform = "scaleX(-1)"; */
-
-      /* Bottom | Right Bubble */
-      /* let height = (properties.height / 2) + bubbleProperties.height ;  */
-      /* Center Bubble */
-      /* let width = properties.width / 2; */
-      /* Call Position and Measurements of element*/
-      /* bubble.style.top = properties.top + 265 + height +'px';
-      bubble.style.left = properties.right - width +'px'; */
-      /* Rotate Bubble */
-      /* bubble.style.transform = "scaleY(-1)"; */
-      /* Adjust Text */
-      /* bubbleText.style.transform = "scaleY(-1)"; */
-
-      /* Bottom | Left Bubble */
-      /* let height = (properties.height / 2) + bubbleProperties.height; */
-      /* Center Bubble */
-      /* let width = properties.width / 2;
-      let bubbleWidth = bubbleProperties.width; */
-      /* Call Position and Measurements of element*/
-      /* bubble.style.top = properties.top + 265 + height +'px';
-      bubble.style.left = properties.left + width - bubbleWidth +'px'; */
-      /* Rotate Bubble */
-      /* bubble.style.transform = "scaleX(-1) scaleY(-1)"; */
-      /* Adjust Text */
-      /* bubbleText.style.transform = "scaleX(-1) scaleY(-1)"; */
+/* Right position and bubble down*/
+/* bubble.style.transform = 'scaleY(-1)';
+document.getElementById("bubbleText").style.transform = 'scaleY(-1) scaleX(-1)' ;
+bubble.style.top = properties.top + 240 + height +'px';
+bubble.style.left = properties.left + width*6.5 +'px';
+bubble.style.transform = 'rotate(180deg)'; */
+/******************************************************************************************************/
+/* Left position and bubble down*/
+/* bubble.style.transform = 'scaleY(-1)';
+document.getElementById("bubbleText").style.transform = 'scaleY(-1)';
+bubble.style.top = properties.top + 240 + height +'px';
+bubble.style.left = properties.left + width +'px'; */
+/* Left position and bubble top*/
+/* bubble.style.top = properties.top + 265 - height +'px';
+bubble.style.left = properties.left + width +'px'; */
+/******************************************************************************************************/
 
 
       /* Next and Prev */
