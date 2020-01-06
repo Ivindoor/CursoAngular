@@ -18,6 +18,9 @@ export class HeroesComponent implements OnInit {
     url: 'none'
   }
 
+
+  
+
   heroes = HEROES;
 
   constructor() { }
