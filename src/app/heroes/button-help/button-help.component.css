@@ -33,6 +33,12 @@
     display: none;
   }
 
+  /* Test */
+  .test{
+    top: 0px;
+    left: 1250px;
+  }
+
   /* Title Tutorial */
   .title {
     margin-top: 30%;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2'
+import { prepareProfile } from 'selenium-webdriver/firefox';
 
 @Component({
   selector: 'app-button-help',
@@ -39,7 +40,7 @@ export class ButtonHelpComponent implements OnInit {
 
     setTimeout(function(){ 
       /* Call Element */
-      let view = document.getElementById("buttonHelp"); /* Id  */
+      let view = document.getElementById("test"); /* Id  */
       /* Get Position and Measurements of Element */
       let properties = view.getBoundingClientRect();
       let frontModal = document.getElementById("frontModal");
@@ -52,6 +53,11 @@ export class ButtonHelpComponent implements OnInit {
       frontModal.style.height = 50 + properties.height+'px';
       /* Append to Modal */
       frontModal.append(view);
+      /* Remove properties from position */
+      view.style.top = 0 + "px";
+      view.style.left = 0 + "px";
+      view.style.right = 0 + "px";
+      view.style.bottom = 0 + "px";
       /* Center Element with the Modal*/
       view.style.marginTop = '25px';
       view.style.marginLeft = '25px';
@@ -70,62 +76,61 @@ export class ButtonHelpComponent implements OnInit {
       /* Get Position and Measurements of Bubble*/
       let bubbleProperties = bubble.getBoundingClientRect();
 
+      /* Center Bubble */
+      let height = (properties.height / 2) + bubbleProperties.height ; 
+      let width = properties.width / 2;
+      let bubbleWidth = bubbleProperties.width; 
+
+
       console.log( properties + " y La resolución de tu pantalla es: " + screen.width + " x " + screen.height);
 
       /* Validate Position of Element */
-      /* switch(){
-      } */
+      if (properties.top < bubbleProperties.height + 20 && properties.left > bubbleProperties.width + 20){
+        
+        /* Bottom | Left Bubble */
 
-    
+        /* Call Position and Measurements of element*/
+        bubble.style.top = properties.top + 265 + height +'px';
+        bubble.style.left = properties.left + width - bubbleWidth +'px';
+        /* Rotate Bubble */
+        bubble.style.transform = "scaleX(-1) scaleY(-1)";
+        /* Adjust Text */
+        bubbleText.style.transform = "scaleX(-1) scaleY(-1)";
 
+      } else if( (screen.width / 2) < properties.left && properties.top > bubbleProperties.height + 20 ){
+
+        /* Top | Left Bubble */
+
+        /* Call Position and Measurements of element*/
+        bubble.style.top = properties.top + 265 - height +'px';
+        bubble.style.left = properties.left + width - bubbleWidth +'px';
+        /* Rotate Bubble */
+        bubble.style.transform = "scaleX(-1)";
+        /* Adjust Text */
+        bubbleText.style.transform = "scaleX(-1)";
+        console.log("Si sirvo");
+
+      } else if (properties.top < bubbleProperties.height + 20 && properties.left < bubbleProperties.width + 20){
+
+        /* Bottom | Right Bubble */
+        
+          /* Call Position and Measurements of element*/
+          bubble.style.top = properties.top + 265 + height +'px';
+          bubble.style.left = properties.right - width +'px';
+          /* Rotate Bubble */
+          bubble.style.transform = "scaleY(-1)";
+          /* Adjust Text */
+          bubbleText.style.transform = "scaleY(-1)";
+
+      } else{
 
         /* Top | Right Bubble */
-        let height = (properties.height / 2) + bubbleProperties.height ; 
-        /* Center Bubble */
-        let width = properties.width / 2;
+
         /* Call Position and Measurements of element*/
         bubble.style.top = properties.top + 265 - height +'px';
         bubble.style.left = properties.right - width +'px';
 
-
-
-      /* Top | Left Bubble */
-      /* let height = (properties.height / 2) + bubbleProperties.height; */
-      /* Center Bubble */
-      /* let width = properties.width / 2;
-      let bubbleWidth = bubbleProperties.width; */
-      /* Call Position and Measurements of element*/
-      /* bubble.style.top = properties.top + 265 - height +'px';
-      bubble.style.left = properties.left + width - bubbleWidth +'px'; */
-      /* Rotate Bubble */
-      /* bubble.style.transform = "scaleX(-1)"; */
-      /* Adjust Text */
-      /* bubbleText.style.transform = "scaleX(-1)"; */
-
-      /* Bottom | Right Bubble */
-      /* let height = (properties.height / 2) + bubbleProperties.height ;  */
-      /* Center Bubble */
-      /* let width = properties.width / 2; */
-      /* Call Position and Measurements of element*/
-      /* bubble.style.top = properties.top + 265 + height +'px';
-      bubble.style.left = properties.right - width +'px'; */
-      /* Rotate Bubble */
-      /* bubble.style.transform = "scaleY(-1)"; */
-      /* Adjust Text */
-      /* bubbleText.style.transform = "scaleY(-1)"; */
-
-      /* Bottom | Left Bubble */
-      /* let height = (properties.height / 2) + bubbleProperties.height; */
-      /* Center Bubble */
-      /* let width = properties.width / 2;
-      let bubbleWidth = bubbleProperties.width; */
-      /* Call Position and Measurements of element*/
-      /* bubble.style.top = properties.top + 265 + height +'px';
-      bubble.style.left = properties.left + width - bubbleWidth +'px'; */
-      /* Rotate Bubble */
-      /* bubble.style.transform = "scaleX(-1) scaleY(-1)"; */
-      /* Adjust Text */
-      /* bubbleText.style.transform = "scaleX(-1) scaleY(-1)"; */
+      }
 
 
       /* Next and Prev */
