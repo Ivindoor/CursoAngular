@@ -38,7 +38,7 @@ export class ButtonHelpComponent implements OnInit {
 
     setTimeout(function(){ 
       /* Call Element */
-      let view = document.getElementById("test"); /* Id  */
+      let view = document.getElementById("buttonHelp"); /* Id  */
       /* Get Position and Measurements of Element */
       let properties = view.getBoundingClientRect();
       let frontModal = document.getElementById("frontModal");
