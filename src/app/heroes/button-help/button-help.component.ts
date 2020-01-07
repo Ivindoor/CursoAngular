@@ -70,6 +70,9 @@ export class ButtonHelpComponent implements OnInit {
       /* Text of Instruction */
       let bubbleText = document.getElementById("bubbleText");
       bubbleText.innerHTML= 'This is the first instruction of this Tutorial <br> With Space'; /* Write instruccion */
+      
+      /* Button Next and Prev */
+      let buttons = document.getElementById("containerButtonsInstructions");
 
       /* Get Position and Measurements of Bubble*/
       let bubbleProperties = bubble.getBoundingClientRect();
@@ -88,12 +91,13 @@ export class ButtonHelpComponent implements OnInit {
         /* Bottom | Left Bubble */
 
         /* Call Position and Measurements of element*/
-        bubble.style.top = properties.top + 25 + height +'px';
+        bubble.style.top = properties.top - 75 + height +'px';
         bubble.style.left = properties.left + width - bubbleWidth +'px';
         /* Rotate Bubble */
         bubble.style.transform = "scaleX(-1) scaleY(-1)";
         /* Adjust Text */
         bubbleText.style.transform = "scaleX(-1) scaleY(-1)";
+        buttons.style.transform = "scaleX(-1) scaleY(-1)";
 
       } else if( (screen.width / 2) < properties.left && properties.top > bubbleProperties.height + 20 ){
 
@@ -106,19 +110,20 @@ export class ButtonHelpComponent implements OnInit {
         bubble.style.transform = "scaleX(-1)";
         /* Adjust Text */
         bubbleText.style.transform = "scaleX(-1)";
-        console.log("Si sirvo");
+        buttons.style.transform = "scaleX(-1)";
 
       } else if (properties.top < bubbleProperties.height + 20 && properties.left < bubbleProperties.width + 20){
 
         /* Bottom | Right Bubble */
         
           /* Call Position and Measurements of element*/
-          bubble.style.top = properties.top + 25 + height +'px';
+          bubble.style.top = properties.top - 75 + height +'px';
           bubble.style.left = properties.right - width +'px';
           /* Rotate Bubble */
           bubble.style.transform = "scaleY(-1)";
           /* Adjust Text */
           bubbleText.style.transform = "scaleY(-1)";
+          buttons.style.transform = "scaleY(-1)";
 
       } else{
 
@@ -128,11 +133,7 @@ export class ButtonHelpComponent implements OnInit {
         bubble.style.top = properties.top - 25 - height +'px';
         bubble.style.left = properties.right - width +'px';
 
-      }
-
-
-      /* Next and Prev */
-      
+      }      
 
      }, 1500);/* End Element */
     

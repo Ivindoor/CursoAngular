@@ -36,9 +36,8 @@
   /* Test */
 
   .test{
-    top: 0;
-    left: 1200px;
-    
+    top: -600px;
+    float: right;    
   }
   
   /* Title Tutorial */
@@ -122,7 +121,7 @@
     position: absolute;
     border-radius: 10% / 50%;
     text-align: center;
-    padding: 1%;
+    padding: 25px;
   }
 
   .bobOne {

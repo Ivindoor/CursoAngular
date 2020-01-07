@@ -29,7 +29,8 @@ body {
   background: $bg;
 }
 
-button {
+/* Button Help */
+  button {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -84,3 +85,5 @@ button {
     }
   }
 }
+
+
