@@ -43,9 +43,9 @@ export class ButtonHelpComponent implements OnInit {
       let properties = view.getBoundingClientRect();
       let frontModal = document.getElementById("frontModal");
       /* console.log(properties); */
-      frontModal.style.top = properties.top + 265 +'px';
+      frontModal.style.top = properties.top - 25 +'px';
       frontModal.style.right = properties.right +'px';
-      frontModal.style.left = properties.left - 30 +'px';
+      frontModal.style.left = properties.left - 25  +'px';
       frontModal.style.bottom = properties.bottom +'px';
       frontModal.style.width = 50 + properties.width+'px';
       frontModal.style.height = 50 + properties.height+'px';
@@ -88,7 +88,7 @@ export class ButtonHelpComponent implements OnInit {
         /* Bottom | Left Bubble */
 
         /* Call Position and Measurements of element*/
-        bubble.style.top = properties.top + 265 + height +'px';
+        bubble.style.top = properties.top + 25 + height +'px';
         bubble.style.left = properties.left + width - bubbleWidth +'px';
         /* Rotate Bubble */
         bubble.style.transform = "scaleX(-1) scaleY(-1)";
@@ -100,7 +100,7 @@ export class ButtonHelpComponent implements OnInit {
         /* Top | Left Bubble */
 
         /* Call Position and Measurements of element*/
-        bubble.style.top = properties.top + 265 - height +'px';
+        bubble.style.top = properties.top - 25 - height +'px';
         bubble.style.left = properties.left + width - bubbleWidth +'px';
         /* Rotate Bubble */
         bubble.style.transform = "scaleX(-1)";
@@ -113,7 +113,7 @@ export class ButtonHelpComponent implements OnInit {
         /* Bottom | Right Bubble */
         
           /* Call Position and Measurements of element*/
-          bubble.style.top = properties.top + 265 + height +'px';
+          bubble.style.top = properties.top + 25 + height +'px';
           bubble.style.left = properties.right - width +'px';
           /* Rotate Bubble */
           bubble.style.transform = "scaleY(-1)";
@@ -125,7 +125,7 @@ export class ButtonHelpComponent implements OnInit {
         /* Top | Right Bubble */
 
         /* Call Position and Measurements of element*/
-        bubble.style.top = properties.top + 265 - height +'px';
+        bubble.style.top = properties.top - 25 - height +'px';
         bubble.style.left = properties.right - width +'px';
 
       }
