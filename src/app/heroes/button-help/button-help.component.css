@@ -1,4 +1,3 @@
-
 @import url(https://fonts.googleapis.com/css?family=Fjalla+One);
 
 /* Button Help */
@@ -35,11 +34,13 @@
   }
 
   /* Test */
-  .test{
-    top: 0px;
-    left: 1250px;
-  }
 
+  .test{
+    top: 0;
+    left: 1200px;
+    
+  }
+  
   /* Title Tutorial */
   .title {
     margin-top: 20%;
