@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-button-help',
   templateUrl: './button-help.component.html',
@@ -11,6 +11,17 @@ export class ButtonHelpComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // función que actualiza el zoom del elemento body
+function actualizarTama() {
+  $("body").css("zoom", window.innerWidth / 2000);
+}
+
+$(document).ready(function() {
+  // actualizaremos el zoom cuando la ventana cambie de tamaño
+  $(window).on("resize", actualizarTama);
+  // y al cargar la página
+  actualizarTama();  
+});
   }
 
   /* Pop Up's */
@@ -38,7 +49,7 @@ export class ButtonHelpComponent implements OnInit {
 
     setTimeout(function(){ 
       /* Call Element */
-      let view = document.getElementById("test"); /* Id  */
+      let view = document.getElementById("betoEsponja"); /* Id  */
       /* Get Position and Measurements of Element */
       let properties = view.getBoundingClientRect();
       let frontModal = document.getElementById("frontModal");
