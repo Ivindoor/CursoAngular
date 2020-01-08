@@ -49,7 +49,7 @@ $(document).ready(function() {
 
     setTimeout(function(){ 
       /* Call Element */
-      let view = document.getElementById("betoEsponja"); /* Id  */
+      let view = document.getElementById("test1"); /* Id  */
       /* Get Position and Measurements of Element */
       let properties = view.getBoundingClientRect();
       let frontModal = document.getElementById("frontModal");
@@ -99,7 +99,7 @@ $(document).ready(function() {
         /* Bottom | Left Bubble */
 
         /* Call Position and Measurements of element*/
-        bubble.style.top = properties.top + 25 + height +'px';
+        bubble.style.top = properties.top - 75 + height +'px';
         bubble.style.left = properties.left + width - bubbleWidth +'px';
         /* Rotate Bubble */
         bubble.style.transform = "scaleX(-1) scaleY(-1)";
@@ -117,14 +117,13 @@ $(document).ready(function() {
         bubble.style.transform = "scaleX(-1)";
         /* Adjust Text */
         bubbleText.style.transform = "scaleX(-1)";
-        console.log("Si sirvo");
 
       } else if (properties.top < bubbleProperties.height + 20 && properties.left < bubbleProperties.width + 20){
 
         /* Bottom | Right Bubble */
         
           /* Call Position and Measurements of element*/
-          bubble.style.top = properties.top + 25 + height +'px';
+          bubble.style.top = properties.top - 75 + height +'px';
           bubble.style.left = properties.right - width +'px';
           /* Rotate Bubble */
           bubble.style.transform = "scaleY(-1)";
@@ -139,11 +138,7 @@ $(document).ready(function() {
         bubble.style.top = properties.top - 25 - height +'px';
         bubble.style.left = properties.right - width +'px';
 
-      }
-
-
-      /* Next and Prev */
-      
+      }      
 
      }, 1500);/* End Element */
     

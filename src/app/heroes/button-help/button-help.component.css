@@ -41,12 +41,17 @@
     margin-left: 44%;
     
   }
+  .test1{
+top: 0px;
+float: right;
+  }
   .test{
     width: 50px;
     margin-top: -60%;
     margin-left: 1%;
     background-color: rgb(14, 55, 236);
     color: white;
+    
   }
   
   /* Title Tutorial */
