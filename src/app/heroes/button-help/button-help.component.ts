@@ -38,7 +38,7 @@ export class ButtonHelpComponent implements OnInit {
 
     setTimeout(function(){ 
       /* Call Element */
-      let view = document.getElementById("buttonHelp"); /* Id  */
+      let view = document.getElementById("test"); /* Id  */
       /* Get Position and Measurements of Element */
       let properties = view.getBoundingClientRect();
       let frontModal = document.getElementById("frontModal");
@@ -98,6 +98,11 @@ export class ButtonHelpComponent implements OnInit {
         /* Adjust Text */
         bubbleText.style.transform = "scaleX(-1) scaleY(-1)";
         buttons.style.transform = "scaleX(-1) scaleY(-1)";
+        buttons.style.marginTop = "0px";
+        buttons.style.marginBottom = "-20px";
+        /* Align Pagination to Right */
+        document.getElementById("pagination").style.cssFloat = "right";
+        document.getElementById("pagination").style.marginTop = "25px";
 
       } else if( (screen.width / 2) < properties.left && properties.top > bubbleProperties.height + 20 ){
 
@@ -124,6 +129,11 @@ export class ButtonHelpComponent implements OnInit {
           /* Adjust Text */
           bubbleText.style.transform = "scaleY(-1)";
           buttons.style.transform = "scaleY(-1)";
+          buttons.style.marginTop = "0px";
+          buttons.style.marginBottom = "-20px";
+          /* Align Pagination to Right */
+          document.getElementById("pagination").style.cssFloat = "right";
+          document.getElementById("pagination").style.marginTop = "25px";
 
       } else{
 

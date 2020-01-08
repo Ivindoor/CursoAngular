@@ -156,6 +156,11 @@
   /* Button Instructions */
 
   .buttonsInstructions{
-    margin-top: -25px;
+    margin-top: -20px;
     float: right;
+  }
+
+  .pagesNumber{
+    float: left;
+    margin: 5px;
   }
