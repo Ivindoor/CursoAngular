@@ -177,7 +177,24 @@ export class ButtonHelpComponent implements OnInit {
     }
   }
 
+  /* Instruction Variables */
+  id : string;
+  instructions : string;
 
+  /* Number Instructions */
+
+  numberInstructions(){
+    switch(this.x){
+      case 1:
+        /* Change Id and Instruction */
+        break;
+      case 2:
+        /* Change Id and Instruction */
+        break;
+      default:
+        break;
+    }
+  }
 
   /* Instruction */
   instruction(){
