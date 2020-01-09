@@ -187,6 +187,9 @@ export class ButtonHelpComponent implements OnInit {
     switch(this.x){
       case 1:
         /* Change Id and Instruction */
+        this.id = "";
+        this.instructions = "";
+        return this.id, this.instructions;
         break;
       case 2:
         /* Change Id and Instruction */
