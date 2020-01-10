@@ -13,6 +13,10 @@ export class ButtonHelpComponent implements OnInit {
   ngOnInit() {
   }
 
+  /* Number of Instructions */
+   x:number = 0;
+
+
   /* Pop Up's */
   firstInstruction(){
 
@@ -30,15 +34,45 @@ export class ButtonHelpComponent implements OnInit {
   document.getElementById("backModal").classList.add("dark");
   document.getElementById("frontModal").classList.add("free");
 
-  setTimeout(function(){ 
-    /* Remove Presentation */
-    title.classList.remove('active');
-    title.classList.add("none");
-    
-
     setTimeout(function(){ 
+      /* Remove Presentation */
+      title.classList.remove('active');
+      title.classList.add("none");
+
+    }, 3500); /* End of presentation transition */
+    
+  }
+
+
+  /* Button Next */
+  next(){
+    this.x++;
+    alert(this.x);
+    this.numberInstructions();
+    return this.x;
+  }
+
+  /* Button Prev */
+  prev(){
+    if(this.x!=0)
+    {
+      this.x--;
+      alert(this.x);
+      this.numberInstructions();
+      return this.x;
+    } else{
+      alert("Ya no hay mas");
+    }
+  }
+
+
+  /* Instruction One */
+  instructionOne(){
+    setTimeout(function(){
+
       /* Call Element */
       let view = document.getElementById("buttonHelp"); /* Id  */
+      console.log(this.id0)
       /* Get Position and Measurements of Element */
       let properties = view.getBoundingClientRect();
       let frontModal = document.getElementById("frontModal");
@@ -69,8 +103,8 @@ export class ButtonHelpComponent implements OnInit {
 
       /* Text of Instruction */
       let bubbleText = document.getElementById("bubbleText");
-      bubbleText.innerHTML= 'This is the first instruction of this Tutorial <br> With Space'; /* Write instruccion */
-      
+      bubbleText.innerHTML= "This is the first instruction of this Tutorial <br> With Space"; /* Write instruccion */
+
       /* Button Next and Prev */
       let buttons = document.getElementById("containerButtonsInstructions");
 
@@ -142,62 +176,14 @@ export class ButtonHelpComponent implements OnInit {
         /* Call Position and Measurements of element*/
         bubble.style.top = properties.top - 25 - height +'px';
         bubble.style.left = properties.right - width +'px';
-
-      }      
-
-     }, 1500);/* End Element */
-    
-
-    }, 3500); /* End of presentation transition */
-    
-
-  }
-
-  /* Number of Instructions */
-  x:number = 0;
-
-  /* Button Next */
-  next(){
-    this.x++;
-    alert(this.x);
-    
-    return this.x;
-  }
-
-  /* Button Prev */
-  prev(){
-    if(this.x!=0)
-    {
-      this.x--;
-      alert(this.x);
-
-      return this.x;
-    } else{
-      alert("Ya no hay mas");
-    }
-  }
-
-  /* Instruction Variables */
-  id : string;
-  instructions : string;
-
-  /* Number Instructions */
-
-  numberInstructions(){
-    switch(this.x){
-      case 1:
-        /* Change Id and Instruction */
-        break;
-      case 2:
-        /* Change Id and Instruction */
-        break;
-      default:
-        break;
-    }
+      }
+      ;
+    }, 4500);
+      
   }
 
   /* Instruction */
-  instruction(){
+  instruction(id : string , intructions : string){
     
     /* Call Element */
     let view = document.getElementById(this.id); /* Id  */
@@ -306,4 +292,31 @@ export class ButtonHelpComponent implements OnInit {
       bubble.style.left = properties.right - width +'px';
     }  
   }
+
+
+  /* Instruction Variables */
+  id : string;
+  instructions : string;
+
+  
+  /* Number Instructions */
+  numberInstructions(){
+    switch(this.x){
+      case 0:
+        /* You already declared this instruction */
+        this.id = "buttonHelp";
+        this.instructions = "This is the first instruction of this Tutorial <br> With Space";
+        this.instruction(this.id,this.instructions);
+        break;
+      case 1:
+        /* Change Id and Instruction */
+        this.id = "test";
+        this.instructions = "Second Instruction";
+        this.instruction(this.id,this.instructions);
+        break;
+      default:
+        break;
+    }
+  }
+
 }
