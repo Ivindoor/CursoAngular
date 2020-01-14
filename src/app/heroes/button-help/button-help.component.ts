@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-button-help',
@@ -36,10 +37,8 @@ export class ButtonHelpComponent implements OnInit {
 
   /* Remove Class None */
   document.getElementById("backModal").classList.remove("none");
-  document.getElementById("frontModal").classList.remove("none");
   /* Add Classes of Modal */
   document.getElementById("backModal").classList.add("dark");
-  document.getElementById("frontModal").classList.add("free");
 
     setTimeout(function(){ 
       /* Remove Presentation */
@@ -53,7 +52,7 @@ export class ButtonHelpComponent implements OnInit {
 
   /* Button Next */
   next(){
-    if(this.x!= this.totalPages -1)
+    if(this.x!=this.totalPages-1)
     {
       /* Clean FrontModal */
       document.getElementById("frontModal").innerHTML = '';
@@ -61,12 +60,26 @@ export class ButtonHelpComponent implements OnInit {
       this.x++;
       /* Number of Pagination */
       this.numberPage = this.x + 1;
-      alert(this.x);
+      //alert(this.x);
       /* Validate other Instruction */
       this.numberInstructions();
       return this.x;
     } else{
-      alert("Ya no hay mas");
+      /* Remove Class bubble */
+      document.getElementById("instruction").classList.remove("bubble");
+      /* Add Classe none */
+      document.getElementById("instruction").classList.add("none");
+      /* Remove Class free */
+      document.getElementById("frontModal").classList.remove("free");
+      /* Add Classe none */
+      document.getElementById("frontModal").classList.add("none");
+      /* Return to 0 counter */
+      this.x = 0;
+      /* Clean FrontModal */
+      document.getElementById("frontModal").innerHTML = '';
+      /* Fareewll */
+      this.farewell();
+      return this.x;
     }
   }
 
@@ -80,12 +93,16 @@ export class ButtonHelpComponent implements OnInit {
       this.x--;
       /* Number of Pagination */
       this.numberPage = this.x + 1;
-      alert(this.x);
+      //alert(this.x);
       /* Validate other Instruction */
       this.numberInstructions();
       return this.x;
     } else{
-      alert("Ya no hay mas");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Just now you are in the beginning',
+      })
     }
   }
 
@@ -93,6 +110,10 @@ export class ButtonHelpComponent implements OnInit {
   /* Instruction One */
   instructionOne(){
     setTimeout(function(){
+      /* Remove Class None */
+      document.getElementById("frontModal").classList.remove("none");
+      /* Add Classes of Modal */
+      document.getElementById("frontModal").classList.add("free");
       /* Call Element */
       let view = document.getElementById("buttonHelp"); /* Id  */
       /* Get Position and Measurements of Element */
@@ -365,19 +386,19 @@ export class ButtonHelpComponent implements OnInit {
       case 1:
         /* Change Id and Instruction */
         this.id = "test";
-        this.instructions = "Second Instruction";
+        this.instructions = "This is the second instruction of this Tutorial";
         this.instruction(this.id,this.instructions);
         break;
       case 2:
         /* Change Id and Instruction */
         this.id = "sliderTxt";
-        this.instructions = "Three Instruction";
+        this.instructions = "This is the three instruction of this Tutorial <br> With Space";
         this.instruction(this.id,this.instructions);
         break;
       case 3:
       /* Change Id and Instruction */
-      this.id = "slider";
-      this.instructions = "Four Instruction";
+      this.id = "otherTest";
+      this.instructions = "This is the four instruction of this Tutorial";
       this.instruction(this.id,this.instructions);
       break;
       default:
@@ -385,5 +406,33 @@ export class ButtonHelpComponent implements OnInit {
     }
   }
 
+  /* Final Title */
+  farewell(){
+
+    /* Presentation */
+    document.getElementById("farewell").classList.add("farewell");
+    let title = document.querySelector('.farewell');
+    setTimeout(function(){ 
+      title.classList.add('active');
+    }, 800);
+  
+  
+      setTimeout(function(){ 
+        /* Remove Presentation */
+        title.classList.remove('active');
+        title.classList.add("none");
+  
+      }, 3500); /* End of presentation transition */
+
+      setTimeout(function(){ 
+        
+      /* Remove Class of Modal */
+      document.getElementById("backModal").classList.remove("dark");
+      /* Add Classes None */
+      document.getElementById("backModal").classList.add("none");
+
+      }, 4000); /* End presentation */
+    
+  }
 
 }
