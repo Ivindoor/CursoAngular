@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { element } from 'protractor';
+import { prepareProfile } from 'selenium-webdriver/firefox';
 
 @Component({
   selector: 'app-button-help',
@@ -17,11 +19,11 @@ export class ButtonHelpComponent implements OnInit {
    x:number = 0;
 
 
-  /* Pop Up's */
+  /* Principal Title */
   firstInstruction(){
 
   /* Presentation */
-  
+
   let title = document.querySelector('.title');
   setTimeout(function(){ 
     title.classList.add('active');
@@ -40,12 +42,15 @@ export class ButtonHelpComponent implements OnInit {
       title.classList.add("none");
 
     }, 3500); /* End of presentation transition */
-    
+  
   }
 
 
   /* Button Next */
   next(){
+    /* Clean FrontModal */
+    document.getElementById("frontModal").innerHTML = '';
+    /* Next Instruction */
     this.x++;
     alert(this.x);
     this.numberInstructions();
@@ -56,6 +61,9 @@ export class ButtonHelpComponent implements OnInit {
   prev(){
     if(this.x!=0)
     {
+      /* Clean FrontModal */
+      document.getElementById("frontModal").innerHTML = '';
+      /* Back Instruction */
       this.x--;
       alert(this.x);
       this.numberInstructions();
@@ -69,12 +77,10 @@ export class ButtonHelpComponent implements OnInit {
   /* Instruction One */
   instructionOne(){
     setTimeout(function(){
-
       /* Call Element */
       let view = document.getElementById("buttonHelp"); /* Id  */
-      console.log(this.id0)
       /* Get Position and Measurements of Element */
-      let properties = view.getBoundingClientRect();
+      const properties = view.getBoundingClientRect();
       let frontModal = document.getElementById("frontModal");
       /* console.log(properties); */
       frontModal.style.top = properties.top - 25 +'px';
@@ -83,16 +89,27 @@ export class ButtonHelpComponent implements OnInit {
       frontModal.style.bottom = properties.bottom +'px';
       frontModal.style.width = 50 + properties.width+'px';
       frontModal.style.height = 50 + properties.height+'px';
-      /* Append to Modal */
-      frontModal.append(view);
       /* Remove properties from position */
       view.style.top = 0 + "px";
       view.style.left = 0 + "px";
       view.style.right = 0 + "px";
-      view.style.bottom = 0 + "px";
+      view.style.bottom = 0 + "px"; 
       /* Center Element with the Modal*/
       view.style.marginTop = '25px';
       view.style.marginLeft = '25px';
+      /* Append to Modal */
+      let clone = view.cloneNode(true);
+      frontModal.append(clone);
+      /* Drop Off From Containers */
+      view.style.position = "fixed";
+      view.style.zIndex = "10";
+      /* Adding properties of Element */
+      view.style.top = properties.top +'px';
+      view.style.left = properties.left +'px';
+      view.style.width = properties.width + "px";
+      view.style.height = properties.height + "px"; 
+      view.style.marginTop = '0px';
+      view.style.marginLeft = '0px';
 
       /* Create Variable of Bubble */
       let bubble = document.getElementById("instruction");
@@ -177,18 +194,17 @@ export class ButtonHelpComponent implements OnInit {
         bubble.style.top = properties.top - 25 - height +'px';
         bubble.style.left = properties.right - width +'px';
       }
-      ;
+
     }, 4500);
       
   }
 
   /* Instruction */
   instruction(id : string , intructions : string){
-    
     /* Call Element */
     let view = document.getElementById(this.id); /* Id  */
     /* Get Position and Measurements of Element */
-    let properties = view.getBoundingClientRect();
+    const properties = view.getBoundingClientRect();
     let frontModal = document.getElementById("frontModal");
     /* console.log(properties); */
     frontModal.style.top = properties.top - 25 +'px';
@@ -197,17 +213,28 @@ export class ButtonHelpComponent implements OnInit {
     frontModal.style.bottom = properties.bottom +'px';
     frontModal.style.width = 50 + properties.width+'px';
     frontModal.style.height = 50 + properties.height+'px';
-    /* Append to Modal */
-    frontModal.append(view);
     /* Remove properties from position */
     view.style.top = 0 + "px";
     view.style.left = 0 + "px";
     view.style.right = 0 + "px";
-    view.style.bottom = 0 + "px";
+    view.style.bottom = 0 + "px"; 
     /* Center Element with the Modal*/
     view.style.marginTop = '25px';
     view.style.marginLeft = '25px';
-
+    /* Append to Modal */
+    let clone = view.cloneNode(true);
+    frontModal.append(clone);
+    /* Drop Off From Containers */
+    view.style.position = "fixed";
+    view.style.zIndex = "10";
+    /* Adding properties of Element */
+    view.style.top = properties.top +'px';
+    view.style.left = properties.left +'px';
+    view.style.width = properties.width + "px";
+    view.style.height = properties.height + "px"; 
+    view.style.marginTop = '0px';
+    view.style.marginLeft = '0px';
+    
     /* Create Variable of Bubble */
     let bubble = document.getElementById("instruction");
     /* Remove Class of Bubble */
@@ -291,6 +318,7 @@ export class ButtonHelpComponent implements OnInit {
       bubble.style.top = properties.top - 25 - height +'px';
       bubble.style.left = properties.right - width +'px';
     }  
+    
   }
 
 
@@ -312,6 +340,12 @@ export class ButtonHelpComponent implements OnInit {
         /* Change Id and Instruction */
         this.id = "test";
         this.instructions = "Second Instruction";
+        this.instruction(this.id,this.instructions);
+        break;
+      case 2:
+        /* Change Id and Instruction */
+        this.id = "sliderTxt";
+        this.instructions = "Three Instruction";
         this.instruction(this.id,this.instructions);
         break;
       default:
