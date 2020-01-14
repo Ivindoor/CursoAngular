@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { element } from 'protractor';
-import { prepareProfile } from 'selenium-webdriver/firefox';
 
 @Component({
   selector: 'app-button-help',
