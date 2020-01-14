@@ -162,5 +162,7 @@
 
   .pagesNumber{
     float: left;
+    padding-top: 7.5px;
     margin: 5px;
+    color: rgb(80, 80, 80);
   }

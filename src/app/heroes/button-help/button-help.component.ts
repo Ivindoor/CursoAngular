@@ -13,8 +13,15 @@ export class ButtonHelpComponent implements OnInit {
   ngOnInit() {
   }
 
+  
   /* Number of Instructions */
-   x:number = 0;
+  x:number = 0;
+
+  /* Total Instructions */
+  totalPages = 4 ; /* You Need Add the Total Pages */
+
+  /* Number of Pagination */
+  numberPage = this.x + 1;
 
 
   /* Principal Title */
@@ -46,13 +53,21 @@ export class ButtonHelpComponent implements OnInit {
 
   /* Button Next */
   next(){
-    /* Clean FrontModal */
-    document.getElementById("frontModal").innerHTML = '';
-    /* Next Instruction */
-    this.x++;
-    alert(this.x);
-    this.numberInstructions();
-    return this.x;
+    if(this.x!= this.totalPages -1)
+    {
+      /* Clean FrontModal */
+      document.getElementById("frontModal").innerHTML = '';
+      /* Next Instruction */
+      this.x++;
+      /* Number of Pagination */
+      this.numberPage = this.x + 1;
+      alert(this.x);
+      /* Validate other Instruction */
+      this.numberInstructions();
+      return this.x;
+    } else{
+      alert("Ya no hay mas");
+    }
   }
 
   /* Button Prev */
@@ -63,7 +78,10 @@ export class ButtonHelpComponent implements OnInit {
       document.getElementById("frontModal").innerHTML = '';
       /* Back Instruction */
       this.x--;
+      /* Number of Pagination */
+      this.numberPage = this.x + 1;
       alert(this.x);
+      /* Validate other Instruction */
       this.numberInstructions();
       return this.x;
     } else{
@@ -131,8 +149,6 @@ export class ButtonHelpComponent implements OnInit {
       let width = properties.width / 2;
       let bubbleWidth = bubbleProperties.width; 
 
-
-      console.log( properties + " y La resolución de tu pantalla es: " + screen.width + " x " + screen.height);
 
       /* Validate Position of Element */
       if (properties.top < bubbleProperties.height + 20 && properties.left > bubbleProperties.width + 20){
@@ -233,12 +249,14 @@ export class ButtonHelpComponent implements OnInit {
     view.style.marginTop = '0px';
     view.style.marginLeft = '0px';
     
+    
     /* Create Variable of Bubble */
     let bubble = document.getElementById("instruction");
     /* Remove Class of Bubble */
     bubble.classList.remove("none");
     /* Add Class of Bubble */
     bubble.classList.add("bubble");
+
 
     /* Text of Instruction */
     let bubbleText = document.getElementById("bubbleText");
@@ -256,7 +274,17 @@ export class ButtonHelpComponent implements OnInit {
     let bubbleWidth = bubbleProperties.width; 
 
 
-    console.log( properties + " y La resolución de tu pantalla es: " + screen.width + " x " + screen.height);
+    /* Reset Bubble */
+    bubble.style.top = properties.top - 25 - height +'px';
+    bubble.style.left = properties.right - width +'px';
+    document.getElementById("pagination").style.cssFloat = "left";
+    document.getElementById("pagination").style.marginTop = "7.5px";
+    bubble.style.transform = "scaleX(1) scaleY(1)";
+    bubbleText.style.transform = "scaleX(1) scaleY(1)";
+    buttons.style.transform = "scaleX(1) scaleY(1)";
+    buttons.style.marginTop = "-20px";
+    buttons.style.cssFloat = "right";
+    buttons.style.paddingBottom = "10px";
 
     /* Validate Position of Element */
     if (properties.top < bubbleProperties.height + 20 && properties.left > bubbleProperties.width + 20){
@@ -346,9 +374,16 @@ export class ButtonHelpComponent implements OnInit {
         this.instructions = "Three Instruction";
         this.instruction(this.id,this.instructions);
         break;
+      case 3:
+      /* Change Id and Instruction */
+      this.id = "slider";
+      this.instructions = "Four Instruction";
+      this.instruction(this.id,this.instructions);
+      break;
       default:
         break;
     }
   }
+
 
 }
