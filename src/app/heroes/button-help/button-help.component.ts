@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2'
+/* import Swal from 'sweetalert2' */
 
 @Component({
   selector: 'app-button-help',
@@ -98,11 +98,12 @@ export class ButtonHelpComponent implements OnInit {
       this.numberInstructions();
       return this.x;
     } else{
-      Swal.fire({
+      alert("Just now you are in the beginning");
+      /* Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Just now you are in the beginning',
-      })
+      }) */
     }
   }
 
@@ -432,6 +433,13 @@ export class ButtonHelpComponent implements OnInit {
       document.getElementById("backModal").classList.add("none");
 
       }, 4000); /* End presentation */
+
+      setTimeout(function(){ 
+
+      /* Reload */
+      location.reload();
+
+      }, 4000); /* Finish Tutorial */
     
   }
 
